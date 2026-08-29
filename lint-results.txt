@@ -1,0 +1,204 @@
+﻿
+D:\Code\Mood Website\src\components\AudioPlayer.tsx
+    3:39  warning  'useCallback' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  @typescript-eslint/no-unused-vars
+   23:30  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+   29:25  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+   35:24  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+   41:48  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+   54:30  error    Error: Cannot access variable before it is declared
+
+`onPlayerReady` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+D:\Code\Mood Website\src\components\AudioPlayer.tsx:54:30
+  52 |                 },
+  53 |                 events: {
+> 54 |                     onReady: onPlayerReady,
+     |                              ^^^^^^^^^^^^^ `onPlayerReady` accessed before it is declared
+  55 |                     onStateChange: onPlayerStateChange,
+  56 |                 },
+  57 |             });
+
+D:\Code\Mood Website\src\components\AudioPlayer.tsx:70:5
+  68 |     }, []);
+  69 |
+> 70 |     const onPlayerReady = (event: any) => {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 71 |         setPlayerReady(true);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 72 |         setVolume(event.target.getVolume());
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 73 |         // Extract info if possible
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 74 |         updateTrackInfo(event.target);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 75 |     };
+     | ^^^^^^^ `onPlayerReady` is declared here
+  76 |
+  77 |     const updateTrackInfo = (player: any) => {
+  78 |         const data = player.getVideoData();                                                                                                                                                                                       react-hooks/immutability
+   55:36  error    Error: Cannot access variable before it is declared
+
+`onPlayerStateChange` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+D:\Code\Mood Website\src\components\AudioPlayer.tsx:55:36
+  53 |                 events: {
+  54 |                     onReady: onPlayerReady,
+> 55 |                     onStateChange: onPlayerStateChange,
+     |                                    ^^^^^^^^^^^^^^^^^^^ `onPlayerStateChange` accessed before it is declared
+  56 |                 },
+  57 |             });
+  58 |         }
+
+D:\Code\Mood Website\src\components\AudioPlayer.tsx:86:5
+   84 |     };
+   85 |
+>  86 |     const onPlayerStateChange = (event: any) => {
+      |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  87 |         // -1 (unstarted), 0 (ended), 1 (playing), 2 (paused), 3 (buffering), 5 (video cued).
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  88 |         updateTrackInfo(event.target);
+      ΓÇª
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 130 |         }
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 131 |     };
+      | ^^^^^^^ `onPlayerStateChange` is declared here
+  132 |
+  133 |     const handleStart = () => {
+  134 |         if (playerRef.current && playerReady) {  react-hooks/immutability
+   68:8   warning  React Hook useEffect has missing dependencies: 'onPlayerReady' and 'onPlayerStateChange'. Either include them or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             react-hooks/exhaustive-deps
+   70:35  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+   77:38  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+   86:41  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+   90:39  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  122:43  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  220:8   warning  React Hook useEffect has a missing dependency: 'togglePlay'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            react-hooks/exhaustive-deps
+  230:8   warning  React Hook useEffect has a missing dependency: 'togglePlay'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            react-hooks/exhaustive-deps
+  278:30  warning  Unused eslint-disable directive (no problems were reported from '@next/next/no-img-element')
+  280:33  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  @next/next/no-img-element
+
+D:\Code\Mood Website\src\components\MahanayakPoster.tsx
+  42:36  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\Code\Mood Website\src\components\MahanayakPoster.tsx:42:36
+  40 |                         className="absolute rounded-full bg-[var(--color-sepia-light)]"
+  41 |                         style={{
+> 42 |                             width: Math.random() * 4 + 3 + "px",
+     |                                    ^^^^^^^^^^^^^ Cannot call impure function
+  43 |                             height: Math.random() * 4 + 3 + "px",
+  44 |                             left: Math.random() * 100 + "%",
+  45 |                             top: Math.random() * 100 + "%",  react-hooks/purity
+  43:37  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\Code\Mood Website\src\components\MahanayakPoster.tsx:43:37
+  41 |                         style={{
+  42 |                             width: Math.random() * 4 + 3 + "px",
+> 43 |                             height: Math.random() * 4 + 3 + "px",
+     |                                     ^^^^^^^^^^^^^ Cannot call impure function
+  44 |                             left: Math.random() * 100 + "%",
+  45 |                             top: Math.random() * 100 + "%",
+  46 |                         }}                                                              react-hooks/purity
+  44:35  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\Code\Mood Website\src\components\MahanayakPoster.tsx:44:35
+  42 |                             width: Math.random() * 4 + 3 + "px",
+  43 |                             height: Math.random() * 4 + 3 + "px",
+> 44 |                             left: Math.random() * 100 + "%",
+     |                                   ^^^^^^^^^^^^^ Cannot call impure function
+  45 |                             top: Math.random() * 100 + "%",
+  46 |                         }}
+  47 |                         initial={{ opacity: 0 }}                                                react-hooks/purity
+  45:34  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\Code\Mood Website\src\components\MahanayakPoster.tsx:45:34
+  43 |                             height: Math.random() * 4 + 3 + "px",
+  44 |                             left: Math.random() * 100 + "%",
+> 45 |                             top: Math.random() * 100 + "%",
+     |                                  ^^^^^^^^^^^^^ Cannot call impure function
+  46 |                         }}
+  47 |                         initial={{ opacity: 0 }}
+  48 |                         animate={{                                                                               react-hooks/purity
+  49:43  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\Code\Mood Website\src\components\MahanayakPoster.tsx:49:43
+  47 |                         initial={{ opacity: 0 }}
+  48 |                         animate={{
+> 49 |                             y: [0, -100 - Math.random() * 100],
+     |                                           ^^^^^^^^^^^^^ Cannot call impure function
+  50 |                             x: [(Math.random() - 0.5) * 50, (Math.random() - 0.5) * 150],
+  51 |                             opacity: [0, Math.random() * 0.25 + 0.1, 0]
+  52 |                         }}                               react-hooks/purity
+  50:34  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\Code\Mood Website\src\components\MahanayakPoster.tsx:50:34
+  48 |                         animate={{
+  49 |                             y: [0, -100 - Math.random() * 100],
+> 50 |                             x: [(Math.random() - 0.5) * 50, (Math.random() - 0.5) * 150],
+     |                                  ^^^^^^^^^^^^^ Cannot call impure function
+  51 |                             opacity: [0, Math.random() * 0.25 + 0.1, 0]
+  52 |                         }}
+  53 |                         transition={{                                                   react-hooks/purity
+  50:62  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\Code\Mood Website\src\components\MahanayakPoster.tsx:50:62
+  48 |                         animate={{
+  49 |                             y: [0, -100 - Math.random() * 100],
+> 50 |                             x: [(Math.random() - 0.5) * 50, (Math.random() - 0.5) * 150],
+     |                                                              ^^^^^^^^^^^^^ Cannot call impure function
+  51 |                             opacity: [0, Math.random() * 0.25 + 0.1, 0]
+  52 |                         }}
+  53 |                         transition={{                       react-hooks/purity
+  51:42  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\Code\Mood Website\src\components\MahanayakPoster.tsx:51:42
+  49 |                             y: [0, -100 - Math.random() * 100],
+  50 |                             x: [(Math.random() - 0.5) * 50, (Math.random() - 0.5) * 150],
+> 51 |                             opacity: [0, Math.random() * 0.25 + 0.1, 0]
+     |                                          ^^^^^^^^^^^^^ Cannot call impure function
+  52 |                         }}
+  53 |                         transition={{
+  54 |                             duration: Math.random() * 15 + 20,               react-hooks/purity
+  54:39  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\Code\Mood Website\src\components\MahanayakPoster.tsx:54:39
+  52 |                         }}
+  53 |                         transition={{
+> 54 |                             duration: Math.random() * 15 + 20,
+     |                                       ^^^^^^^^^^^^^ Cannot call impure function
+  55 |                             repeat: Infinity,
+  56 |                             ease: "linear",
+  57 |                             delay: Math.random() * 10,                                                                                                   react-hooks/purity
+  57:36  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\Code\Mood Website\src\components\MahanayakPoster.tsx:57:36
+  55 |                             repeat: Infinity,
+  56 |                             ease: "linear",
+> 57 |                             delay: Math.random() * 10,
+     |                                    ^^^^^^^^^^^^^ Cannot call impure function
+  58 |                         }}
+  59 |                     />
+  60 |                 ))}                                                                                                                                                                react-hooks/purity
+
+Γ£û 27 problems (21 errors, 6 warnings)
+  0 errors and 1 warning potentially fixable with the `--fix` option.
+
