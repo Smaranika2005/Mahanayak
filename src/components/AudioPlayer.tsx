@@ -311,7 +311,7 @@ export default function AudioPlayer() {
                     {/* Central Controls */}
                     <div className="flex flex-col items-center gap-2 w-full md:w-1/3">
                         <div className="flex items-center gap-4 md:gap-6">
-                            <button onClick={handlePrev} className="hidden md:block p-2 rounded-full text-[var(--color-sepia-light)]/80 hover:text-[var(--color-sepia-light)] transition-transform hover:scale-110">
+                            <button onClick={handlePrev} className="flex p-2 rounded-full text-[var(--color-sepia-light)]/80 hover:text-[var(--color-sepia-light)] transition-transform hover:scale-110 shrink-0">
                                 <SkipBack className="w-4 h-4 md:w-5 md:h-5 fill-current" />
                             </button>
 
@@ -333,7 +333,7 @@ export default function AudioPlayer() {
                                 <span className="absolute text-[8px] md:text-[10px] font-bold mt-1 font-mono">10</span>
                             </button>
 
-                            <button onClick={handleNext} className="hidden md:block p-2 rounded-full text-[var(--color-sepia-light)]/80 hover:text-[var(--color-sepia-light)] transition-transform hover:scale-110">
+                            <button onClick={handleNext} className="flex p-2 rounded-full text-[var(--color-sepia-light)]/80 hover:text-[var(--color-sepia-light)] transition-transform hover:scale-110 shrink-0">
                                 <SkipForward className="w-4 h-4 md:w-5 md:h-5 fill-current" />
                             </button>
 
